@@ -76,12 +76,12 @@
           <input id="density" type="range" min="15" max="100" value="86" />
         </div>
 
-        <fieldset class="options">
-          <legend>模式</legend>
-          <label><input id="invert" type="checkbox" /> 反相</label>
-          <label><input id="edgeBoost" type="checkbox" checked /> 强化文字边缘</label>
-          <label><input id="randomDrift" type="checkbox" checked /> 随机漂移</label>
-        </fieldset>
+        <div class="options" role="group" aria-label="模式">
+          <div class="options-title">模式</div>
+          <label class="toggle"><input id="invert" type="checkbox" /> <span>反相</span></label>
+          <label class="toggle"><input id="edgeBoost" type="checkbox" checked /> <span>强化边缘</span></label>
+          <label class="toggle"><input id="randomDrift" type="checkbox" checked /> <span>随机漂移</span></label>
+        </div>
       </section>
 
       <section class="stage-wrap" aria-label="粒子预览">
