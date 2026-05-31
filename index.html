@@ -4,8 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>书页粒子散开原型</title>
-    <meta name="app-version" content="2026-05-31-sidebar-v2" />
-    <link rel="stylesheet" href="./styles.css?v=20260531-sidebar-v2" />
+    <meta name="app-version" content="2026-05-31-sidebar-v3" />
+    <link rel="stylesheet" href="./styles.css?v=20260531-sidebar-v3" />
   </head>
   <body>
     <main class="app">
@@ -29,52 +29,54 @@
           <button id="downloadBtn" type="button">保存画面</button>
         </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="progress">散开进度</label>
-            <output id="progressValue">0%</output>
+        <div class="sliders">
+          <div class="field">
+            <div class="field-head">
+              <label for="progress">散开进度</label>
+              <output id="progressValue">0%</output>
+            </div>
+            <input id="progress" type="range" min="0" max="100" value="0" />
           </div>
-          <input id="progress" type="range" min="0" max="100" value="0" />
-        </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="pixelSize">像素块大小</label>
-            <output id="pixelSizeValue">6</output>
+          <div class="field">
+            <div class="field-head">
+              <label for="pixelSize">像素块大小</label>
+              <output id="pixelSizeValue">6</output>
+            </div>
+            <input id="pixelSize" type="range" min="3" max="16" value="6" />
           </div>
-          <input id="pixelSize" type="range" min="3" max="16" value="6" />
-        </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="scatter">散开强度</label>
-            <output id="scatterValue">260</output>
+          <div class="field">
+            <div class="field-head">
+              <label for="scatter">散开强度</label>
+              <output id="scatterValue">260</output>
+            </div>
+            <input id="scatter" type="range" min="0" max="650" value="260" />
           </div>
-          <input id="scatter" type="range" min="0" max="650" value="260" />
-        </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="rotation">旋转量</label>
-            <output id="rotationValue">140°</output>
+          <div class="field">
+            <div class="field-head">
+              <label for="rotation">旋转量</label>
+              <output id="rotationValue">140°</output>
+            </div>
+            <input id="rotation" type="range" min="-360" max="360" value="140" />
           </div>
-          <input id="rotation" type="range" min="-360" max="360" value="140" />
-        </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="wave">波浪延迟</label>
-            <output id="waveValue">0.35</output>
+          <div class="field">
+            <div class="field-head">
+              <label for="wave">波浪延迟</label>
+              <output id="waveValue">0.35</output>
+            </div>
+            <input id="wave" type="range" min="0" max="100" value="35" />
           </div>
-          <input id="wave" type="range" min="0" max="100" value="35" />
-        </div>
 
-        <div class="field">
-          <div class="field-head">
-            <label for="density">保留粒子</label>
-            <output id="densityValue">86%</output>
+          <div class="field">
+            <div class="field-head">
+              <label for="density">保留粒子</label>
+              <output id="densityValue">86%</output>
+            </div>
+            <input id="density" type="range" min="15" max="100" value="86" />
           </div>
-          <input id="density" type="range" min="15" max="100" value="86" />
         </div>
 
         <div class="options" role="group" aria-label="模式">
@@ -100,6 +102,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=20260531-sidebar-v2"></script>
+    <script src="./app.js?v=20260531-sidebar-v3"></script>
   </body>
 </html>
