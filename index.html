@@ -4,88 +4,90 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>书页粒子散开原型</title>
-    <meta name="app-version" content="2026-05-31-sidebar-v3" />
-    <link rel="stylesheet" href="./styles.css?v=20260531-sidebar-v3" />
+    <meta name="app-version" content="2026-05-31-sidebar-v4" />
+    <link rel="stylesheet" href="./styles.css?v=20260531-sidebar-v4" />
   </head>
   <body>
     <main class="app">
-      <section class="controls" aria-label="参数控制">
-        <div class="brand">
-          <span class="brand-mark">P</span>
-          <div>
-            <h1>书页粒子散开</h1>
-            <p>黑白像素化，再按曲线把书页拆成粒子。</p>
-          </div>
-        </div>
-
-        <label class="upload">
-          <input id="imageInput" type="file" accept="image/*" />
-          <span>上传书页或图片</span>
-        </label>
-
-        <div class="actions">
-          <button id="playBtn" type="button">播放</button>
-          <button id="resetBtn" type="button">复位</button>
-          <button id="downloadBtn" type="button">保存画面</button>
-        </div>
-
-        <div class="sliders">
-          <div class="field">
-            <div class="field-head">
-              <label for="progress">散开进度</label>
-              <output id="progressValue">0%</output>
+      <aside class="sidebar">
+        <section class="controls" aria-label="参数控制">
+          <div class="brand">
+            <span class="brand-mark">P</span>
+            <div>
+              <h1>书页粒子散开</h1>
+              <p>黑白像素化，再按曲线把书页拆成粒子。</p>
             </div>
-            <input id="progress" type="range" min="0" max="100" value="0" />
           </div>
 
-          <div class="field">
-            <div class="field-head">
-              <label for="pixelSize">像素块大小</label>
-              <output id="pixelSizeValue">6</output>
+          <label class="upload">
+            <input id="imageInput" type="file" accept="image/*" />
+            <span>上传书页或图片</span>
+          </label>
+
+          <div class="actions">
+            <button id="playBtn" type="button">播放</button>
+            <button id="resetBtn" type="button">复位</button>
+            <button id="downloadBtn" type="button">保存画面</button>
+          </div>
+
+          <div class="sliders">
+            <div class="field">
+              <div class="field-head">
+                <label for="progress">散开进度</label>
+                <output id="progressValue">0%</output>
+              </div>
+              <input id="progress" type="range" min="0" max="100" value="0" />
             </div>
-            <input id="pixelSize" type="range" min="3" max="16" value="6" />
-          </div>
 
-          <div class="field">
-            <div class="field-head">
-              <label for="scatter">散开强度</label>
-              <output id="scatterValue">260</output>
+            <div class="field">
+              <div class="field-head">
+                <label for="pixelSize">像素块大小</label>
+                <output id="pixelSizeValue">6</output>
+              </div>
+              <input id="pixelSize" type="range" min="3" max="16" value="6" />
             </div>
-            <input id="scatter" type="range" min="0" max="650" value="260" />
-          </div>
 
-          <div class="field">
-            <div class="field-head">
-              <label for="rotation">旋转量</label>
-              <output id="rotationValue">140°</output>
+            <div class="field">
+              <div class="field-head">
+                <label for="scatter">散开强度</label>
+                <output id="scatterValue">260</output>
+              </div>
+              <input id="scatter" type="range" min="0" max="650" value="260" />
             </div>
-            <input id="rotation" type="range" min="-360" max="360" value="140" />
-          </div>
 
-          <div class="field">
-            <div class="field-head">
-              <label for="wave">波浪延迟</label>
-              <output id="waveValue">0.35</output>
+            <div class="field">
+              <div class="field-head">
+                <label for="rotation">旋转量</label>
+                <output id="rotationValue">140°</output>
+              </div>
+              <input id="rotation" type="range" min="-360" max="360" value="140" />
             </div>
-            <input id="wave" type="range" min="0" max="100" value="35" />
-          </div>
 
-          <div class="field">
-            <div class="field-head">
-              <label for="density">保留粒子</label>
-              <output id="densityValue">86%</output>
+            <div class="field">
+              <div class="field-head">
+                <label for="wave">波浪延迟</label>
+                <output id="waveValue">0.35</output>
+              </div>
+              <input id="wave" type="range" min="0" max="100" value="35" />
             </div>
-            <input id="density" type="range" min="15" max="100" value="86" />
-          </div>
-        </div>
 
-        <div class="options" role="group" aria-label="模式">
-          <div class="options-title">模式</div>
-          <label class="toggle"><input id="invert" type="checkbox" /> <span>反相</span></label>
-          <label class="toggle"><input id="edgeBoost" type="checkbox" checked /> <span>强化边缘</span></label>
-          <label class="toggle"><input id="randomDrift" type="checkbox" checked /> <span>随机漂移</span></label>
-        </div>
-      </section>
+            <div class="field">
+              <div class="field-head">
+                <label for="density">保留粒子</label>
+                <output id="densityValue">86%</output>
+              </div>
+              <input id="density" type="range" min="15" max="100" value="86" />
+            </div>
+          </div>
+        </section>
+
+        <section class="mode-panel" aria-label="模式">
+          <h2>模式</h2>
+          <label class="mode-row"><span>反相</span><input id="invert" type="checkbox" /></label>
+          <label class="mode-row"><span>强化边缘</span><input id="edgeBoost" type="checkbox" checked /></label>
+          <label class="mode-row"><span>随机漂移</span><input id="randomDrift" type="checkbox" checked /></label>
+        </section>
+      </aside>
 
       <section class="stage-wrap" aria-label="粒子预览">
         <div class="stage-top">
@@ -102,6 +104,6 @@
       </section>
     </main>
 
-    <script src="./app.js?v=20260531-sidebar-v3"></script>
+    <script src="./app.js?v=20260531-sidebar-v4"></script>
   </body>
 </html>
