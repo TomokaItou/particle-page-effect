@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>书页粒子散开原型</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="controls" aria-label="参数控制">
+        <div class="brand">
+          <span class="brand-mark">P</span>
+          <div>
+            <h1>书页粒子散开</h1>
+            <p>黑白像素化，再按曲线把书页拆成粒子。</p>
+          </div>
+        </div>
+
+        <label class="upload">
+          <input id="imageInput" type="file" accept="image/*" />
+          <span>上传书页或图片</span>
+        </label>
+
+        <div class="actions">
+          <button id="playBtn" type="button">播放</button>
+          <button id="resetBtn" type="button">复位</button>
+          <button id="downloadBtn" type="button">保存画面</button>
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="progress">散开进度</label>
+            <output id="progressValue">0%</output>
+          </div>
+          <input id="progress" type="range" min="0" max="100" value="0" />
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="pixelSize">像素块大小</label>
+            <output id="pixelSizeValue">6</output>
+          </div>
+          <input id="pixelSize" type="range" min="3" max="16" value="6" />
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="scatter">散开强度</label>
+            <output id="scatterValue">260</output>
+          </div>
+          <input id="scatter" type="range" min="0" max="650" value="260" />
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="rotation">旋转量</label>
+            <output id="rotationValue">140°</output>
+          </div>
+          <input id="rotation" type="range" min="-360" max="360" value="140" />
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="wave">波浪延迟</label>
+            <output id="waveValue">0.35</output>
+          </div>
+          <input id="wave" type="range" min="0" max="100" value="35" />
+        </div>
+
+        <div class="field">
+          <div class="field-head">
+            <label for="density">保留粒子</label>
+            <output id="densityValue">86%</output>
+          </div>
+          <input id="density" type="range" min="15" max="100" value="86" />
+        </div>
+
+        <fieldset class="options">
+          <legend>模式</legend>
+          <label><input id="invert" type="checkbox" /> 反相</label>
+          <label><input id="edgeBoost" type="checkbox" checked /> 强化文字边缘</label>
+          <label><input id="randomDrift" type="checkbox" checked /> 随机漂移</label>
+        </fieldset>
+      </section>
+
+      <section class="stage-wrap" aria-label="粒子预览">
+        <div class="stage-top">
+          <div>
+            <h2>预览</h2>
+            <p id="status">默认书页已生成，可以直接播放。</p>
+          </div>
+          <div class="meter">
+            <span id="particleCount">0</span>
+            <small>particles</small>
+          </div>
+        </div>
+        <canvas id="stage" aria-label="粒子动画画布"></canvas>
+      </section>
+    </main>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
